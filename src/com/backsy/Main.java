@@ -96,7 +96,7 @@ public class Main {
 
             System.out.print(".");
             t++;
-            if (t > 70){
+            if (t % 70 == 0){
                 System.out.println();
             }
 
