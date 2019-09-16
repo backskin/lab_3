@@ -60,6 +60,17 @@ public class Main {
                 + "\n is prime with accuracy = " + p);
     }*/
 
+    private static void pressAnyKeyToContinue()
+    {
+        System.out.println("Press Enter key to continue...");
+        try
+        {
+            int a = System.in.read();
+        }
+        catch(Exception ignored)
+        {}
+    }
+
 
     private static void findTheNemoWithLogs() {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss");
@@ -106,7 +117,6 @@ public class Main {
 
     public static void main(String[] args) {
 
-
         try {
 
             if (args.length != 2)
@@ -114,6 +124,7 @@ public class Main {
 
             bitSize = Integer.parseInt(args[0]);
             k = Integer.parseInt(args[1]);
+            findTheNemoWithLogs();
 
         } catch (NumberFormatException e) {
 
@@ -122,12 +133,9 @@ public class Main {
                     "\narg[0] must be 'p' (bit size of Big Number)" +
                     "\narg[1] must be 'k' (accuracy of prime test)" +
                     "\n Exiting...");
-            return;
         }
 
-
-        findTheNemoWithLogs();
-
+        pressAnyKeyToContinue();
 
     }
 }
