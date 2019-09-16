@@ -105,11 +105,21 @@ class Tests {
     // k = коэффициент точности. Метод возвращает ноль, если число составное
     // или точность, с которой оно является простым
 
+    //just as костыль
+    private static byte[] toBitArray(BigInteger bigInteger){
+        String bigByteString = bigInteger.toString(2);
+        byte[] bigByteArray = bigByteString.getBytes();
+        for (int i = 0; i < bigByteArray.length; i++) {
+            bigByteArray[i] -= 48;
+        }
+        return bigByteArray;
+    }
+
     static boolean testSoloveyShtrassen(BigInteger N, int k){
 
         for (int i = 0; i < k; i++) {
 
-            byte[] bigByteArray = N.toByteArray();
+            byte[] bigByteArray = toBitArray(N);
             byte[] raw = new byte[bigByteArray.length];
             for (int j = 0; j < raw.length; j++) {
                 raw[j] = (byte) (bigByteArray[j] * randGen.next());
