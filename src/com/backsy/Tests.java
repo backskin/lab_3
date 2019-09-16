@@ -53,7 +53,11 @@ class Tests {
             byte[] rba = randGen.randomArray(bitSize);
             rba[0] = 1;
             rba[bitSize-1] = 1;
-            integer = new BigInteger(rba);
+            StringBuilder binary = new StringBuilder();
+            for (byte a: rba) {
+                binary.append(a);
+            }
+            integer = new BigInteger(binary.toString(), 2);
 
         } while (!isThisBigIntCool(integer));
 

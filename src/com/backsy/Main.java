@@ -124,15 +124,20 @@ public class Main {
 
             bitSize = Integer.parseInt(args[0]);
             k = Integer.parseInt(args[1]);
+
+            if (bitSize <= 10 || k < 2)
+                throw new NumberFormatException();
+
             findTheNemoWithLogs();
 
         } catch (NumberFormatException e) {
 
-            System.out.println(e.getLocalizedMessage());
-            System.out.println("!WARNING! Entered wrong parameters!" +
-                    "\narg[0] must be 'p' (bit size of Big Number)" +
+            System.out.println("!WARNING! Wrong (or null) parameters!" +
+                    "\narg[0] must be 'p' (bit size of Big Number) " +
+                    "\nand p > 10 for sure" +
                     "\narg[1] must be 'k' (accuracy of prime test)" +
-                    "\n Exiting...");
+                    "\nand k > 1 for sure" +
+                    "\n");
         }
 
         pressAnyKeyToContinue();
