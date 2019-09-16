@@ -108,8 +108,11 @@ public class Main {
 
 
         try {
-            bitSize = Integer.parseInt(args[0]);
 
+            if (args.length != 2)
+                throw new NumberFormatException();
+
+            bitSize = Integer.parseInt(args[0]);
             k = Integer.parseInt(args[1]);
 
         } catch (NumberFormatException e) {
